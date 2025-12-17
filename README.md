@@ -1,12 +1,10 @@
 ## JAX Ray Tracing
 
-This is the beginnings of a simple ray tracing implementation using JAX for fun and learning. It's also a opportunity to do misguided things on TPU for novelty value, like (eventually) use a TPU for massively parallel path tracing, or use Pallas like a shader language.
-
-Personally, I'm hoping that applying tools to the wrong problems will reveal alternative perspectives vs learning about things the "right" way. I'm not stopping to think if I should, but wondering about whether I could (can). :)
+This is the beginnings of a simple ray tracing implementation using JAX for fun and learning. I'm also interested in applying JAX's hardware acceleration and distributed processing for ray tracing. GPUs would be the natural fit here - but I also thought it would be an interesting to see how much I could accelerate using other XPUs (e.g. TPUs). This is an exploration, so practicality is not the goal here! 
 
 ### Why Ray Tracing?
 
-A university course I did many moons ago sparked an interest in ray tracing for me. Some of my more clever friends (than I) went on to work in the industry, but I think about ray tracing every now and then. This seems like a fun way to do that.
+A university course I did many moons ago sparked an interest in ray tracing for me. Some of my cleverer friends (than I) went on to work in the industry, but I think about ray tracing every now and then. 
 
 I'm familiar with the math (thanks uni degree), but haven't "worked it out on paper" in decades. Luckily, Gemini (and Claude) have proved amazing at polishing my attempts to vectorize Möller–Trumbore and other algos.
 
@@ -29,7 +27,7 @@ The desired end-state is to have the following work:
 - [ ] Adaptive super-sampling (maybe as a Pallas kernel?)
 - [ ] Separately optimizing for TPU and GPU execution.
 
-Some of these TODOs may be difficult / impossible to get working (well) on TPU, given that it's not exactly designed for graphics algorithms (something something not stopping to think if I should).
+Some of these TODOs may be difficult / impossible to get working (well) on XPU. For example, certain data structures like BSP trees seem quite far-fetched to implement.
 
 On GPU/TPU optimization, Gemini and Claude has applied a critical eye to the code and identified a *lot* of deficiencies. In that sense, this could be a good base to try out different optimizations that work better/worse on GPU vs TPU.
 
